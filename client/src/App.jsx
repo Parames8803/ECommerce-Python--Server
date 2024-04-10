@@ -10,6 +10,8 @@ import Bridal from "./pages/Bridal";
 import Frocks from "./pages/Frocks";
 import Sports from "./pages/Sports";
 import Auth from "./pages/Auth";
+import { Toaster } from "sonner";
+import Cart from "./pages/Cart";
 
 const App = () => {
   const [showLoader, setShowLoader] = useState(true);
@@ -27,6 +29,7 @@ const App = () => {
         <Loader />
       ) : (
         <BrowserRouter>
+          <Toaster richColors />
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
@@ -37,6 +40,7 @@ const App = () => {
               <Route path="frocks" element={<Frocks />} />
               <Route path="sports" element={<Sports />} />
               <Route path="product_details/:id" element={<ProductDetails />} />
+              <Route path="carts" element={<Cart />} />
             </Route>
           </Routes>
         </BrowserRouter>

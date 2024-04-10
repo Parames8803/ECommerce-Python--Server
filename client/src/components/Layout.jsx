@@ -4,8 +4,9 @@ import { FaMicrophone, FaMicrophoneSlash } from "react-icons/fa";
 import { ImCart } from "react-icons/im";
 import { RiImageAddFill, RiLoginCircleFill } from "react-icons/ri";
 import { BiSolidLogOutCircle } from "react-icons/bi";
-import Axios from "axios";
+import AllProducts from "../assets/allProducts.json";
 import "../styles/Layout.css";
+import { IoIosBackspace } from "react-icons/io";
 
 const Layout = () => {
   const [isRecording, setIsRecording] = useState(false);
@@ -15,6 +16,8 @@ const Layout = () => {
     name: null,
     token: null,
   });
+  const [toggleSearchDiv, setToggleSearchDiv] = useState(false);
+  const [data, setData] = useState([]);
 
   const navigate = useNavigate();
 
@@ -62,6 +65,21 @@ const Layout = () => {
     });
   }, [window.location.pathname]);
 
+  const handleSearch = (searchQuery) => {
+    setToggleSearchDiv(true);
+    const results = AllProducts.filter((product) => {
+      // Convert each property value to string and check if it includes the search query
+      return Object.values(product).some(
+        (value) =>
+          typeof value === "string" &&
+          value.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    });
+
+    // Use the results as needed, for example:
+    setData(results);
+  };
+
   return (
     <>
       <nav>
@@ -72,12 +90,31 @@ const Layout = () => {
           <h1>Garments</h1>
         </div>
         <div className="links">
-          <Link to="/">Home</Link>
-          <Link to="/#">Cart</Link>
-          <Link to="/#">Profile</Link>
+          <Link
+            to="/"
+            onClick={() => {
+              setToggleSearchDiv(false);
+            }}
+          >
+            Home
+          </Link>
+          <Link
+            to="/carts"
+            onClick={() => {
+              setToggleSearchDiv(false);
+            }}
+          >
+            Cart
+          </Link>
         </div>
         <div className="search">
-          <input type="text" className="bar" />
+          <input
+            type="text"
+            className="bar"
+            onChange={(e) => {
+              handleSearch(e.target.value);
+            }}
+          />
           {isRecording ? (
             <button className="mikeOff" onClick={btnRecordStop}>
               <FaMicrophoneSlash />
@@ -114,6 +151,7 @@ const Layout = () => {
                   localStorage.removeItem("token");
                   localStorage.removeItem("user");
                   navigate("/auth");
+                  setToggleSearchDiv(false);
                 }}
               >
                 <BiSolidLogOutCircle />
@@ -126,6 +164,7 @@ const Layout = () => {
                 className="btnLogin"
                 onClick={() => {
                   navigate("/auth");
+                  setToggleSearchDiv(false);
                 }}
               >
                 <RiLoginCircleFill />
@@ -136,9 +175,48 @@ const Layout = () => {
           )}
         </div>
       </nav>
-      <div className="outlet_container">
-        <Outlet />
-      </div>
+      {!toggleSearchDiv ? (
+        <div className="outlet_container">
+          <Outlet />
+        </div>
+      ) : (
+        <div className="layout_product_listing_container">
+          <div className="back_btn_container">
+            <button
+              onClick={() => {
+                setToggleSearchDiv(false);
+              }}
+              className="back_btn"
+            >
+              <IoIosBackspace />
+              Back
+            </button>
+          </div>
+          <div className="products">
+            {data.map((item, index) => (
+              <div className="product_container" key={index}>
+                <Link
+                  to={`/product_details/${item.asin}`}
+                  className="product_details_wrapper"
+                  onClick={() => {
+                    setToggleSearchDiv(false);
+                  }}
+                >
+                  <img
+                    src={item.product_photo}
+                    alt="productImg"
+                    className="productImage"
+                  />
+                  <p className="product_title">{item.product_title}</p>
+                  <h3 className="product_price">
+                    {item.product_original_price || item.product_price}
+                  </h3>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </>
   );
 };

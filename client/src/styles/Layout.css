@@ -133,7 +133,9 @@ nav .search .timer {
   margin-left: -200px;
   transform: scale3d(10px);
 }
-
+.layout_product_listing_container {
+  padding: 0 5%;
+}
 .outlet_container {
   margin: 3%;
 }

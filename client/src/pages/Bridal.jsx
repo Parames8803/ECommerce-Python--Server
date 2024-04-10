@@ -11,7 +11,6 @@ const Bridal = () => {
   useEffect(() => {
     const loadData = async () => {
       const res = BridalProducts;
-      console.log(res);
       setData(res);
     };
     loadData();

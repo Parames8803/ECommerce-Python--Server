@@ -89,3 +89,17 @@
 .product_rating_title {
   font-size: 20px;
 }
+
+.add_to_cart_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  gap: 10px;
+  background-color: rgb(44, 43, 43);
+  color: white;
+  padding: 10px 0;
+  border-radius: 10px;
+  width: 50%;
+  cursor: pointer;
+}

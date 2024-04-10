@@ -3,6 +3,8 @@ const connectDb = require("./src/db/dbConfig");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const authRoutes = require("./src/routes/AuthRoutes.js");
+const userRoutes = require("./src/routes/userRoutes.js");
+require("dotenv").config();
 
 const app = express();
 
@@ -14,11 +16,12 @@ app.use(
 
 app.use(bodyParser.json());
 app.use("/", authRoutes); // Mount the routes
+app.use("/user", userRoutes);
 
 const startServer = async () => {
   try {
-    connectDb("mongodb://localhost:27017/sns_squares");
-    app.listen(3001, () =>
+    connectDb(process.env.MONGO_DB_URL);
+    app.listen(process.env.PORT, () =>
       console.log(`Server running on port http://localhost:3001/`)
     );
   } catch (error) {

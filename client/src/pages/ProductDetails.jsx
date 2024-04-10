@@ -4,13 +4,34 @@ import "../styles/ProductDetails.css";
 import AllProducts from "../assets/allProducts.json";
 import Loader from "../components/Loader";
 import { IoIosBackspace, IoIosCheckmark } from "react-icons/io";
-import { FaStar } from "react-icons/fa6";
+import { FaCartArrowDown, FaStar } from "react-icons/fa6";
+import Axios from "axios";
+import { toast } from "sonner";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState({});
   const { id } = useParams();
   const [showLoader, setShowLoader] = useState(true);
   const navigate = useNavigate();
+
+  const handleAddCart = async (id) => {
+    try {
+      let user = localStorage.getItem("token");
+      if (user !== null) {
+        let res = await Axios.post("http://localhost:3001/user/cart", {
+          user,
+          id,
+        });
+        if (res.status === 200) {
+          toast.success("Successfully product added to cart");
+        }
+      } else {
+        toast.warning("Please Login to Add Products to cart");
+      }
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
+  };
 
   useEffect(() => {
     const loadData = async () => {
@@ -43,7 +64,7 @@ const ProductDetails = () => {
               Back
             </button>
           </div>
-          {product && (
+          {product ? (
             <div className="container">
               <img src={product.product_photo} alt="productImg" />
               <div className="details">
@@ -79,8 +100,19 @@ const ProductDetails = () => {
                   </div>
                 </div>
                 <p className="product_delivery_text">{product.delivery}</p>
+                <div
+                  className="add_to_cart_container"
+                  onClick={() => {
+                    handleAddCart(product.asin);
+                  }}
+                >
+                  <FaCartArrowDown />
+                  <div className="add_to_cart_text">Add Cart</div>
+                </div>
               </div>
             </div>
+          ) : (
+            <>Requested Product has not Found</>
           )}
         </div>
       )}

@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { MdOutlineAlternateEmail } from "react-icons/md";
-import { FaTelegramPlane } from "react-icons/fa";
+import { FaTelegramPlane, FaRegEyeSlash } from "react-icons/fa";
 import { CiLock } from "react-icons/ci";
 import { GrView } from "react-icons/gr";
-import { FaRegEyeSlash } from "react-icons/fa";
+import { toast } from "sonner";
+
 import "../styles/Auth.css";
 
 const Auth = () => {
@@ -34,11 +35,10 @@ const Auth = () => {
         navigate("/"); // Redirect to dashboard or desired page
       } else {
         // Handle other response statuses
-        setErrMsg(response.data.message || "An error occurred");
+        toast.warning(response.data.message || "An error occurred");
       }
     } catch (error) {
-      console.log("Error:", error);
-      setErrMsg(error.response.data.message);
+      toast.error(error.response.data.message);
     }
   };
 

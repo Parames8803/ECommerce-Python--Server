@@ -1,0 +1,56 @@
+.profile_card_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.cart_container_text {
+  font-size: 25px;
+  color: purple;
+  font-weight: bold;
+  padding: 0 10%;
+}
+.profile_cart_details_table {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.td_title_container {
+  padding: 10px;
+  font-size: 15px;
+}
+thead th {
+  background-color: orangered;
+  color: white;
+  padding: 10px 0;
+  width: 150px;
+}
+.cart_delete_icon {
+  background: transparent;
+  border: none;
+  color: purple;
+  font-size: 20px;
+  cursor: pointer;
+}
+tbody td {
+  width: 150px;
+  text-align: center;
+}
+.cart_quantity_changer {
+  border: 0.5px solid black;
+  display: flex;
+  width: 100%;
+}
+.quantity_minus,
+.quantity,
+.quantity_add {
+  width: 100%;
+  border: 0.5px solid black;
+}
+.quantity_minus,
+.quantity_add {
+  cursor: pointer;
+}
+.total_price_amount {
+  font-size: 24px;
+}
