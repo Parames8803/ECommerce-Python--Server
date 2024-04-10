@@ -1,0 +1,98 @@
+.admin_login_form_container_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin_login_form_container {
+  box-shadow: 0px 3px 9px 0px #00000026;
+  background-color: #fcfcfc;
+  width: 400px;
+  padding: 30px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.admin_login_form_title {
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+  color: orangered;
+  font-weight: bold;
+}
+.admin_login_input_container_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.admin_login_email_input_container,
+.admin_login_password_input_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.admin_login_input_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 0.5px solid gray;
+  padding: 10px;
+  border-radius: 4px;
+}
+.admin_login_input_container_input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0 15px;
+}
+.admin_login_input_container_input::-webkit-credentials-auto-fill-button {
+  display: none;
+}
+.view_icon_admin_login {
+  cursor: pointer;
+}
+.material_symbols_outlined {
+  color: black;
+}
+.admin_login_forgot_container {
+  width: 100%;
+  text-align: right;
+}
+.admin_login_forgot_text {
+  text-decoration: none;
+  color: black;
+}
+.admin_login_forgot_text:hover {
+  text-decoration: underline;
+}
+.admin_login_submit_btn {
+  width: 100%;
+  background-color: black;
+  opacity: 80%;
+  color: white;
+  font-family: "Gilroy_Mediyum", sans-serif;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.signup_content_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.switch_container_link {
+  color: black;
+  text-decoration: none;
+}
+.switch_container_link:hover {
+  text-decoration: underline;
+  color: blue;
+}
+.container_error_message {
+  text-align: center;
+  color: red;
+}

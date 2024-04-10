@@ -1,0 +1,203 @@
+.topBrands {
+  background-image: url("../../src/assets/intro.jpg");
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  padding: 80px 50px 0;
+  line-height: 15px;
+  border-radius: 10px;
+  margin: 10px 10% 10px;
+}
+.topBrands h1 {
+  font-size: 50px;
+  color: black;
+}
+.topBrands p {
+  color: crimson;
+  font-weight: bold;
+}
+.categories {
+  margin: 3% 10%;
+}
+.categories .category {
+  display: flex;
+  column-gap: 20px;
+  justify-content: flex-start;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+.categories .category::-webkit-scrollbar {
+  display: none;
+}
+.categories .category .card1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid tomato;
+  padding: 0px 10px;
+  background-color: tomato;
+  border-radius: 10px;
+  height: 100px;
+}
+.categories .category .card1 p {
+  color: rgb(255, 208, 88);
+  font-size: 35px;
+  padding: 0 10px;
+}
+.categories .category .card1 a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  line-height: 25px;
+  padding: 0 10px;
+}
+.categories .category .card2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(250, 231, 205);
+  padding: 0px 10px;
+  background-color: rgb(250, 231, 205);
+  border-radius: 10px;
+  height: 100px;
+}
+.categories .category .card2 p {
+  color: red;
+  font-size: 35px;
+  padding: 0 10px;
+}
+.categories .category .card2 a {
+  color: gray;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  line-height: 25px;
+  padding: 0 10px;
+}
+.categories .category .card3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(250, 231, 205);
+  padding: 0px 10px;
+  background-color: rgb(41, 7, 135);
+  border-radius: 10px;
+  height: 100px;
+}
+.categories .category .card3 p {
+  color: rgb(255, 123, 0);
+  font-size: 35px;
+  padding: 0 10px;
+}
+.categories .category .card3 a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  line-height: 25px;
+  padding: 0 10px;
+}
+
+.categories .category .card4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(250, 231, 205);
+  padding: 0px 10px;
+  background-color: steelblue;
+  border-radius: 10px;
+  height: 100px;
+}
+.categories .category .card4 p {
+  color: yellow;
+  font-size: 35px;
+  padding: 0 10px;
+}
+.categories .category .card4 a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  line-height: 25px;
+  padding: 0 10px;
+}
+.categories .category .card5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid tomato;
+  padding: 0px 10px;
+  background-color: tomato;
+  border-radius: 10px;
+  height: 100px;
+}
+.categories .category .card5 p {
+  color: rgb(182, 182, 182);
+  font-size: 35px;
+  padding: 0 10px;
+}
+.categories .category .card5 a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  line-height: 25px;
+  padding: 0 10px;
+}
+.products {
+  display: flex;
+  margin: 3% 10%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.product_details_wrapper {
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  display: grid;
+  grid-template-rows: 1fr 0.2fr 0.2fr;
+  gap: 5px;
+}
+.product_title {
+  height: 60px;
+  overflow: scroll;
+  padding: 0 20px;
+  color: black;
+  scroll-behavior: smooth;
+}
+.product_title::-webkit-scrollbar {
+  display: none;
+}
+.productImage {
+  width: 100%;
+  height: 180px;
+}
+.product_container {
+  width: 200px;
+  padding: 10px;
+  border-radius: 0px;
+  box-shadow: 0px 10px 24px 0px #00000029;
+}
+
+/* .product_title_container {
+  height: 60px; 
+  overflow: hidden;
+}
+
+.product_title {
+  padding: 20px; 
+  margin: 0;
+  color: black;
+  scroll-behavior: smooth;
+  animation: scrollText 2s linear infinite;
+}
+@keyframes scrollText {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-40%);
+  }
+} */
